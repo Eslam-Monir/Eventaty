@@ -11,3 +11,16 @@ C:\Users\Eslam Magdy\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\Wi
 C:\Users\Eslam Magdy\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.CopyComplete
 C:\Users\Eslam Magdy\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
 C:\Users\Eslam Magdy\source\repos\WindowsFormsApp5\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe.config
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.pdb
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\bin\Debug\Oracle.DataAccess.dll
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.AssemblyReference.cache
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.SuggestedBindingRedirects.cache
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form1.resources
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Properties.Resources.resources
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.GenerateResource.cache
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.CoreCompileInputs.cache
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.CopyComplete
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
