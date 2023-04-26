@@ -21,7 +21,7 @@ namespace WindowsFormsApp5
     {
         string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
         OracleConnection conn;
-
+       public static int ID;
         public Login_form()
         {
             InitializeComponent();
@@ -54,11 +54,11 @@ namespace WindowsFormsApp5
 
             cmd.Connection = conn;
             if (!IsPO.Checked) {
-                cmd.CommandText = "select * from Users where Name = :name and Password= :password";
+                cmd.CommandText = "select id from Users where Name = :name and Password= :password";
             }
             else
             {
-                cmd.CommandText = "select * from placeowner where Name = :name and Password= :password";
+                cmd.CommandText = "select id from placeowner where Name = :name and Password= :password";
             }
             cmd.Parameters.Add("name", userName.Text);
             cmd.Parameters.Add("password", Password.Text);
@@ -68,17 +68,19 @@ namespace WindowsFormsApp5
             {
                 Verify.Text = "Login Successfull ";
                 if (!IsPO.Checked)
-                {
+                {ID = Int32.Parse(dr[0].ToString());
                     this.Hide();
                     UserHome HomeForm = new UserHome();
                     HomeForm.Show();
+                    
                   
                 }
                 else
-                {
+                {ID = Int32.Parse(dr[0].ToString());
                     this.Hide();
                     PlaceOwnerHome HomeForm = new PlaceOwnerHome();
                     HomeForm.Show();
+                    
                 }
             }
             else { Verify.Text = "Login Unsuccessfull "; }

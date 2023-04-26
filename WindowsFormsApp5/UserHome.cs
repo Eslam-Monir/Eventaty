@@ -16,5 +16,15 @@ namespace WindowsFormsApp5
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void UserHome_Load(object sender, EventArgs e)
+        {
+            label1.Text = Login_form.ID.ToString();
+        }
     }
 }
