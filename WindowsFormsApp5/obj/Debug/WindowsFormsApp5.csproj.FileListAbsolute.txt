@@ -22,3 +22,5 @@ C:\Projects\Collage Projects\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp
 C:\Projects\Collage Projects\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
 C:\Projects\Collage Projects\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
 C:\Projects\Collage Projects\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Login_form.resources
+C:\Projects\Collage Projects\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.PlaceOwnerHome.resources
+C:\Projects\Collage Projects\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.UserHome.resources
