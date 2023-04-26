@@ -6,14 +6,14 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp5
 {
-    public partial class Form1 : Form
+    public partial class Create_Event : Form
     {
 
         string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
         OracleConnection conn;
 
 
-        public Form1()
+        public Create_Event()
         {
             InitializeComponent();
         }
@@ -35,6 +35,7 @@ namespace WindowsFormsApp5
             {
                 MessageBox.Show("the Event Name is already exist in that Date, write another");
                 dr.Close();
+
             }
             else
             {

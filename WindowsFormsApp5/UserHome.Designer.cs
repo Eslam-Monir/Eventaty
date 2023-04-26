@@ -49,6 +49,7 @@
             this.Controls.Add(this.create_event);
             this.Name = "UserHome";
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.UserHome_Load);
             this.ResumeLayout(false);
 
         }

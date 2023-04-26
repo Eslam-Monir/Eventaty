@@ -13,8 +13,13 @@ namespace WindowsFormsApp5
         private void create_event_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 CreateEvent = new Form1();
+            Create_Event CreateEvent = new Create_Event();
             CreateEvent.Show();
+        }
+
+        private void UserHome_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

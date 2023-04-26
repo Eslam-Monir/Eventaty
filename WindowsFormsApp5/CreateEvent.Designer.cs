@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp5
 {
-    partial class Form1
+    partial class Create_Event
     {
         /// <summary>
         /// Required designer variable.
@@ -188,7 +188,7 @@
             this.event_location.Size = new System.Drawing.Size(91, 24);
             this.event_location.TabIndex = 39;
             // 
-            // Form1
+            // Create_Event
             // 
             this.ClientSize = new System.Drawing.Size(793, 448);
             this.Controls.Add(this.event_location);
@@ -208,7 +208,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "Create_Event";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();

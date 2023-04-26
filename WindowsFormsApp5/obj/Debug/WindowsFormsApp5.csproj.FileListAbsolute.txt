@@ -28,7 +28,6 @@ D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\Windows
 D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\bin\Debug\Oracle.DataAccess.dll
 D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.AssemblyReference.cache
 D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.SuggestedBindingRedirects.cache
-D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Form1.resources
 D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.PlaceOwnerHome.resources
 D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Login_form.resources
 D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Properties.Resources.resources
@@ -38,3 +37,4 @@ D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\Windows
 D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
 D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
 D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.UserHome.resources
+D:\Work\year 3 is\second term\Software Engineering  739\project\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Create_Event.resources
