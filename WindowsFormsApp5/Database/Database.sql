@@ -1,5 +1,5 @@
 --------------------------------------------------------
---  File created - Wednesday-April-26-2023   
+--  File created - Thursday-April-27-2023   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Table CATEGORY
@@ -32,7 +32,8 @@
 	"DESCRIPTION" VARCHAR2(20), 
 	"CATEGORIES" VARCHAR2(20), 
 	"LOCATION" NUMBER, 
-	"STATUS" NUMBER
+	"STATUS" NUMBER, 
+	"PO_ID" NUMBER
    ) ;
 --------------------------------------------------------
 --  DDL for Table EVENT_CATERGORY
@@ -77,7 +78,8 @@
 	"LOCATION" VARCHAR2(500), 
 	"CAPACITY" NUMBER, 
 	"AVAILABLE_TIME" VARCHAR2(20), 
-	"STATUS" VARCHAR2(20)
+	"STATUS" VARCHAR2(20), 
+	"PO_ID" NUMBER
    ) ;
 --------------------------------------------------------
 --  DDL for Table PLACEOWNER
@@ -85,15 +87,8 @@
 
   CREATE TABLE "PLACEOWNER" 
    (	"ID" NUMBER, 
-	"NAME" VARCHAR2(20)
-   ) ;
---------------------------------------------------------
---  DDL for Table PLACEOWNER_PLACES
---------------------------------------------------------
-
-  CREATE TABLE "PLACEOWNER_PLACES" 
-   (	"PO_ID" NUMBER, 
-	"PLACE_ID" NUMBER
+	"NAME" VARCHAR2(20), 
+	"PASSWORD" VARCHAR2(20)
    ) ;
 --------------------------------------------------------
 --  DDL for Table SPONSERS
@@ -142,45 +137,17 @@ REM INSERTING into USER_ENROLLED_EVENTS
 ---------------------------------------------------
 
 ---------------------------------------------------
---   DATA FOR TABLE PLACEOWNER
---   FILTER = none used
----------------------------------------------------
-REM INSERTING into PLACEOWNER
-
----------------------------------------------------
---   END DATA FOR TABLE PLACEOWNER
----------------------------------------------------
-
----------------------------------------------------
 --   DATA FOR TABLE PENDING_REQUEST
 --   FILTER = none used
 ---------------------------------------------------
 REM INSERTING into PENDING_REQUEST
+Insert into PENDING_REQUEST (ID,USER_ID,EVENT_ID) values (1,1,1);
+Insert into PENDING_REQUEST (ID,USER_ID,EVENT_ID) values (2,1,2);
+Insert into PENDING_REQUEST (ID,USER_ID,EVENT_ID) values (3,1,3);
+Insert into PENDING_REQUEST (ID,USER_ID,EVENT_ID) values (4,1,4);
 
 ---------------------------------------------------
 --   END DATA FOR TABLE PENDING_REQUEST
----------------------------------------------------
-
----------------------------------------------------
---   DATA FOR TABLE FAVORITE_CATEGORY
---   FILTER = none used
----------------------------------------------------
-REM INSERTING into FAVORITE_CATEGORY
-
----------------------------------------------------
---   END DATA FOR TABLE FAVORITE_CATEGORY
----------------------------------------------------
-
----------------------------------------------------
---   DATA FOR TABLE PLACE
---   FILTER = none used
----------------------------------------------------
-REM INSERTING into PLACE
-Insert into PLACE (ID,NAME,LOCATION,CAPACITY,AVAILABLE_TIME,STATUS) values (2,'messi','october',20,'hm','ok');
-Insert into PLACE (ID,NAME,LOCATION,CAPACITY,AVAILABLE_TIME,STATUS) values (3,'cr7','gzera',30,'hour','ok');
-
----------------------------------------------------
---   END DATA FOR TABLE PLACE
 ---------------------------------------------------
 
 ---------------------------------------------------
@@ -191,6 +158,33 @@ REM INSERTING into USER_CREATED_EVENTS
 
 ---------------------------------------------------
 --   END DATA FOR TABLE USER_CREATED_EVENTS
+---------------------------------------------------
+
+---------------------------------------------------
+--   DATA FOR TABLE EVENTS
+--   FILTER = none used
+---------------------------------------------------
+REM INSERTING into EVENTS
+Insert into EVENTS (ID,NAME,DATES,TIMES,ATTENDEE_LIMIT,DESCRIPTION,CATEGORIES,LOCATION,STATUS,PO_ID) values (2,'career summit','bokra','delwa2ty',2,'ay 7aga','job fair',1,0,1);
+Insert into EVENTS (ID,NAME,DATES,TIMES,ATTENDEE_LIMIT,DESCRIPTION,CATEGORIES,LOCATION,STATUS,PO_ID) values (3,'Asu career','bokra','delwa2ty',2,'ay 7aga','job fair',1,0,1);
+Insert into EVENTS (ID,NAME,DATES,TIMES,ATTENDEE_LIMIT,DESCRIPTION,CATEGORIES,LOCATION,STATUS,PO_ID) values (5,'egycon','bokra','delwa2ty',2,'ay 7aga','gaming',1,0,1);
+Insert into EVENTS (ID,NAME,DATES,TIMES,ATTENDEE_LIMIT,DESCRIPTION,CATEGORIES,LOCATION,STATUS,PO_ID) values (1,'insomnia','bokra','delwa2ty',2,'ay 7aga','gaming',1,0,1);
+Insert into EVENTS (ID,NAME,DATES,TIMES,ATTENDEE_LIMIT,DESCRIPTION,CATEGORIES,LOCATION,STATUS,PO_ID) values (4,'hoba','b3dh','now',5,'ppp','sport',2,0,2);
+
+---------------------------------------------------
+--   END DATA FOR TABLE EVENTS
+---------------------------------------------------
+
+---------------------------------------------------
+--   DATA FOR TABLE PLACE
+--   FILTER = none used
+---------------------------------------------------
+REM INSERTING into PLACE
+Insert into PLACE (ID,NAME,LOCATION,CAPACITY,AVAILABLE_TIME,STATUS,PO_ID) values (1,'zayd','octobar',11212,'asdas','1',1);
+Insert into PLACE (ID,NAME,LOCATION,CAPACITY,AVAILABLE_TIME,STATUS,PO_ID) values (2,'nasr','cairo',5555,'kk','1',2);
+
+---------------------------------------------------
+--   END DATA FOR TABLE PLACE
 ---------------------------------------------------
 
 ---------------------------------------------------
@@ -224,6 +218,38 @@ REM INSERTING into EVENT_SPONSERS
 ---------------------------------------------------
 
 ---------------------------------------------------
+--   DATA FOR TABLE FAVORITE_CATEGORY
+--   FILTER = none used
+---------------------------------------------------
+REM INSERTING into FAVORITE_CATEGORY
+
+---------------------------------------------------
+--   END DATA FOR TABLE FAVORITE_CATEGORY
+---------------------------------------------------
+
+---------------------------------------------------
+--   DATA FOR TABLE PLACEOWNER
+--   FILTER = none used
+---------------------------------------------------
+REM INSERTING into PLACEOWNER
+Insert into PLACEOWNER (ID,NAME,PASSWORD) values (1,'PO','123');
+Insert into PLACEOWNER (ID,NAME,PASSWORD) values (2,'samir','111');
+
+---------------------------------------------------
+--   END DATA FOR TABLE PLACEOWNER
+---------------------------------------------------
+
+---------------------------------------------------
+--   DATA FOR TABLE SPONSERS
+--   FILTER = none used
+---------------------------------------------------
+REM INSERTING into SPONSERS
+
+---------------------------------------------------
+--   END DATA FOR TABLE SPONSERS
+---------------------------------------------------
+
+---------------------------------------------------
 --   DATA FOR TABLE EVENT_CATERGORY
 --   FILTER = none used
 ---------------------------------------------------
@@ -238,39 +264,10 @@ REM INSERTING into EVENT_CATERGORY
 --   FILTER = none used
 ---------------------------------------------------
 REM INSERTING into USERS
+Insert into USERS (ID,NAME,PASSWORD,EMAIL) values (1,'eslam','123','essss');
 
 ---------------------------------------------------
 --   END DATA FOR TABLE USERS
----------------------------------------------------
-
----------------------------------------------------
---   DATA FOR TABLE SPONSERS
---   FILTER = none used
----------------------------------------------------
-REM INSERTING into SPONSERS
-
----------------------------------------------------
---   END DATA FOR TABLE SPONSERS
----------------------------------------------------
-
----------------------------------------------------
---   DATA FOR TABLE PLACEOWNER_PLACES
---   FILTER = none used
----------------------------------------------------
-REM INSERTING into PLACEOWNER_PLACES
-
----------------------------------------------------
---   END DATA FOR TABLE PLACEOWNER_PLACES
----------------------------------------------------
-
----------------------------------------------------
---   DATA FOR TABLE EVENTS
---   FILTER = none used
----------------------------------------------------
-REM INSERTING into EVENTS
-
----------------------------------------------------
---   END DATA FOR TABLE EVENTS
 ---------------------------------------------------
 --------------------------------------------------------
 --  Constraints for Table CATEGORY
@@ -324,7 +321,13 @@ REM INSERTING into EVENTS
   ALTER TABLE "FAVORITE_CATEGORY" MODIFY ("CAT_ID" NOT NULL ENABLE);
  
   ALTER TABLE "FAVORITE_CATEGORY" MODIFY ("USER_ID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table PENDING_REQUEST
+--------------------------------------------------------
 
+  ALTER TABLE "PENDING_REQUEST" ADD CONSTRAINT "PENDING_REQUEST_PK" PRIMARY KEY ("ID") ENABLE;
+ 
+  ALTER TABLE "PENDING_REQUEST" MODIFY ("ID" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table PLACE
 --------------------------------------------------------
@@ -332,12 +335,6 @@ REM INSERTING into EVENTS
   ALTER TABLE "PLACE" ADD CONSTRAINT "PLACE_PK" PRIMARY KEY ("ID") ENABLE;
  
   ALTER TABLE "PLACE" MODIFY ("ID" NOT NULL ENABLE);
- 
-  ALTER TABLE "PLACE" MODIFY ("NAME" NOT NULL ENABLE);
- 
-  ALTER TABLE "PLACE" MODIFY ("LOCATION" NOT NULL ENABLE);
- 
-  ALTER TABLE "PLACE" MODIFY ("CAPACITY" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table PLACEOWNER
 --------------------------------------------------------
@@ -347,11 +344,6 @@ REM INSERTING into EVENTS
   ALTER TABLE "PLACEOWNER" MODIFY ("ID" NOT NULL ENABLE);
  
   ALTER TABLE "PLACEOWNER" MODIFY ("NAME" NOT NULL ENABLE);
---------------------------------------------------------
---  Constraints for Table PLACEOWNER_PLACES
---------------------------------------------------------
-
-  ALTER TABLE "PLACEOWNER_PLACES" MODIFY ("PO_ID" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table SPONSERS
 --------------------------------------------------------
@@ -395,6 +387,12 @@ REM INSERTING into EVENTS
   CREATE UNIQUE INDEX "EVENTS_PK" ON "EVENTS" ("ID") 
   ;
 --------------------------------------------------------
+--  DDL for Index PENDING_REQUEST_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "PENDING_REQUEST_PK" ON "PENDING_REQUEST" ("ID") 
+  ;
+--------------------------------------------------------
 --  DDL for Index PLACEOWNER_PK
 --------------------------------------------------------
 
@@ -432,8 +430,11 @@ REM INSERTING into EVENTS
 --  Ref Constraints for Table EVENTS
 --------------------------------------------------------
 
-  ALTER TABLE "EVENTS" ADD CONSTRAINT "EVENTS_PLACE_FK1" FOREIGN KEY ("LOCATION")
-	  REFERENCES "PLACE" ("ID") ENABLE;
+  ALTER TABLE "EVENTS" ADD CONSTRAINT "EVENTS_PLACEOWNER_FK1" FOREIGN KEY ("PO_ID")
+	  REFERENCES "PLACEOWNER" ("ID") ON DELETE CASCADE ENABLE;
+ 
+  ALTER TABLE "EVENTS" ADD CONSTRAINT "EVENTS_PLACE_FK1" FOREIGN KEY ("PO_ID")
+	  REFERENCES "PLACE" ("ID") ON DELETE CASCADE ENABLE;
 --------------------------------------------------------
 --  Ref Constraints for Table EVENT_CATERGORY
 --------------------------------------------------------
@@ -470,17 +471,13 @@ REM INSERTING into EVENTS
  
   ALTER TABLE "PENDING_REQUEST" ADD CONSTRAINT "PENDING_REQUEST_USERS_FK1" FOREIGN KEY ("USER_ID")
 	  REFERENCES "USERS" ("ID") ON DELETE CASCADE ENABLE;
-
-
 --------------------------------------------------------
---  Ref Constraints for Table PLACEOWNER_PLACES
+--  Ref Constraints for Table PLACE
 --------------------------------------------------------
 
-  ALTER TABLE "PLACEOWNER_PLACES" ADD CONSTRAINT "PLACEOWNER_PLACES_PLACEOW_FK1" FOREIGN KEY ("PO_ID")
+  ALTER TABLE "PLACE" ADD CONSTRAINT "PLACES_PLACEOWNER_FK1" FOREIGN KEY ("PO_ID")
 	  REFERENCES "PLACEOWNER" ("ID") ON DELETE CASCADE ENABLE;
- 
-  ALTER TABLE "PLACEOWNER_PLACES" ADD CONSTRAINT "PLACEOWNER_PLACES_PLACE_FK1" FOREIGN KEY ("PLACE_ID")
-	  REFERENCES "PLACE" ("ID") ON DELETE CASCADE ENABLE;
+
 
 
 --------------------------------------------------------

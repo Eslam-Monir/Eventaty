@@ -52,6 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events.cs" />
+    <Compile Include="eventRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eventRequests.Designer.cs">
+      <DependentUpon>eventRequests.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlaceOwnerHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="eventRequests.resx">
+      <DependentUpon>eventRequests.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlaceOwnerHome.resx">
       <DependentUpon>PlaceOwnerHome.cs</DependentUpon>
     </EmbeddedResource>

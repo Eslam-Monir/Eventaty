@@ -29,11 +29,12 @@ namespace WindowsFormsApp5
             conn = new OracleConnection(ordb);
             conn.Open();
             OracleCommand cmd = new OracleCommand();
+            OracleCommand cmd2 = new OracleCommand();
             cmd.Connection = conn;
             cmd.CommandText = "  select * from events inner join place on  Events.location = place.id where  place.po_id= "+Login_form.ID;
-           
-    
-              
+            
+
+
 
             /**//*and Place.PO_ID= "+Login_form.ID;*/
             cmd.CommandType = CommandType.Text;
@@ -58,6 +59,9 @@ namespace WindowsFormsApp5
 
                 
                 PownerEvents.Add( pEvent );
+
+
+                cmd2.CommandText = "  select * from events inner join place on  Events.location = place.id where  place.po_id= " + Login_form.ID;
 
             }
             /*      for (int i = 0;i<PownerEvents.Count;i++)
@@ -109,6 +113,13 @@ namespace WindowsFormsApp5
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            eventRequests eventRequests = new eventRequests();
+            eventRequests.Show();
         }
     }
 }
