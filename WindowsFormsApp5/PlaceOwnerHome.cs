@@ -123,7 +123,18 @@ namespace WindowsFormsApp5
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // onClick go to [Manage Place form]
+            this.Hide();
+            MangePlace managePlace = new MangePlace();
+            managePlace.Show();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            eventRequests Req = new eventRequests();
+            Req.Show();
+
         }
     }
 }
