@@ -37,3 +37,16 @@ C:\Users\eslam\Source\Repos\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5
 C:\Users\eslam\Source\Repos\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.CoreCompileInputs.cache
 C:\Users\eslam\Source\Repos\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
 C:\Users\eslam\Source\Repos\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
+C:\Projects\Collage Projects\eventaty_git\Eventaty\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe.config
+C:\Projects\Collage Projects\eventaty_git\Eventaty\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.exe
+C:\Projects\Collage Projects\eventaty_git\Eventaty\WindowsFormsApp5\bin\Debug\WindowsFormsApp5.pdb
+C:\Projects\Collage Projects\eventaty_git\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.AssemblyReference.cache
+C:\Projects\Collage Projects\eventaty_git\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.SuggestedBindingRedirects.cache
+C:\Projects\Collage Projects\eventaty_git\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.PlaceOwnerHome.resources
+C:\Projects\Collage Projects\eventaty_git\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Login_form.resources
+C:\Projects\Collage Projects\eventaty_git\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.Properties.Resources.resources
+C:\Projects\Collage Projects\eventaty_git\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.UserHome.resources
+C:\Projects\Collage Projects\eventaty_git\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.GenerateResource.cache
+C:\Projects\Collage Projects\eventaty_git\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.CoreCompileInputs.cache
+C:\Projects\Collage Projects\eventaty_git\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
+C:\Projects\Collage Projects\eventaty_git\Eventaty\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
