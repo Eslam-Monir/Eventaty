@@ -128,5 +128,13 @@ namespace WindowsFormsApp5
             managePlace.Show();
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            eventRequests Req = new eventRequests();
+            Req.Show();
+
+        }
     }
 }
