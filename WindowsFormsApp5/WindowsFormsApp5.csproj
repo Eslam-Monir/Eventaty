@@ -48,8 +48,17 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events.cs" />
+    <Compile Include="ManagePlace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include=".Designer.cs">
+      <DependentUpon>ManagePlace.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PlaceOwnerHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +79,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ManagePlace.resx">
+      <DependentUpon>ManagePlace.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlaceOwnerHome.resx">
       <DependentUpon>PlaceOwnerHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,6 +112,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
