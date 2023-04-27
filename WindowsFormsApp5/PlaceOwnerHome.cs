@@ -110,5 +110,20 @@ namespace WindowsFormsApp5
         {
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // onClick go to [Manage Place form]
+        }
     }
 }
