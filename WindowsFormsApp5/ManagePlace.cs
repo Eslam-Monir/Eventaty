@@ -11,12 +11,12 @@ using Oracle.DataAccess.Client;
 
 namespace WindowsFormsApp5
 {
-    public partial class Form1 : Form
+    public partial class MangePlace : Form
     {
         string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
         OracleDataAdapter adapter;
         DataSet ds;
-        public Form1()
+        public MangePlace()
         {
             InitializeComponent();
         }
