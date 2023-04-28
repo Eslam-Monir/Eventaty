@@ -54,18 +54,7 @@ namespace WindowsFormsApp5
 
                     );
                 PownerEvents.Add(pEvent);
-                c.CommandText = "select Name from place where id =  " + dr[7].ToString();
-                OracleDataReader r = c.ExecuteReader();
-               while(r.Read())
-                {
-                  place = r[0].ToString();
-                }
-               r.Close();
-                
-
-
-                
-
+     
             }
             /*      for (int i = 0;i<PownerEvents.Count;i++)
                   {
@@ -91,6 +80,16 @@ namespace WindowsFormsApp5
                 return;
             ListViewItem item = listView1.SelectedItems[0];
             int selectedIndex = item.Index;
+
+            OracleCommand c = new OracleCommand();
+            c.Connection = conn;
+            c.CommandText = "select Name from place where id =  " + PownerEvents[selectedIndex].location;
+            OracleDataReader r = c.ExecuteReader();
+            if (r.Read())
+            {
+                place = r[0].ToString();
+            }
+            r.Close();
 
 
             label2.Text = "Name :           " + PownerEvents[selectedIndex].name;

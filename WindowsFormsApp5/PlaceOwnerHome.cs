@@ -8,6 +8,7 @@ namespace WindowsFormsApp5
 {
     public partial class PlaceOwnerHome : Form
     {
+        string place;
         string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
         OracleConnection conn;
         public PlaceOwnerHome()
@@ -24,7 +25,7 @@ namespace WindowsFormsApp5
             conn.Open();
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "  select * from events inner join place on  Events.location = place.id where  place.po_id= " + Login_form.ID;
+            cmd.CommandText = "  select * from events inner join place on  Events.location = place.id where  place.po_id= " + Login_form.ID + "and events.status  = 1" ;
 
 
 
@@ -73,12 +74,22 @@ namespace WindowsFormsApp5
             ListViewItem item = listView1.SelectedItems[0];
             int selectedIndex = item.Index;
 
+            OracleCommand c = new OracleCommand();
+            c.Connection = conn;
+            c.CommandText = "select Name from place where id =  " + PownerEvents[selectedIndex].location;
+            OracleDataReader r = c.ExecuteReader();
+            if (r.Read())
+            {
+                place = r[0].ToString();
+            }
+            r.Close();
+
 
             label1.Text = PownerEvents[selectedIndex].name;
             label8.Text = PownerEvents[selectedIndex].description;
             label4.Text = PownerEvents[selectedIndex].categories;
-            label6.Text = PownerEvents[selectedIndex].location.ToString();
-
+            label6.Text = place;
+            
         }
 
         private void label1_Click(object sender, EventArgs e)

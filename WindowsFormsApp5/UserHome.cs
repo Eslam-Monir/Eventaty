@@ -8,6 +8,7 @@ namespace WindowsFormsApp5
 {
     public partial class UserHome : Form
     {
+        string place;
         string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
         OracleConnection conn;
         List<Events> PownerEvents = new List<Events>();
@@ -22,7 +23,7 @@ namespace WindowsFormsApp5
             conn.Open();
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "  select events.* , place.name FROM events INNER JOIN place ON events.location=place.id  ";
+            cmd.CommandText = "  SELECT events.* FROM events INNER join category  ON events.categories = category.name inner JOIN favorite_category ON category.id = favorite_category.cat_id WHERE favorite_category.user_id = "+Login_form.User_ID;
             cmd.CommandType = CommandType.Text;
 
             OracleDataReader dr = cmd.ExecuteReader();
@@ -37,13 +38,12 @@ namespace WindowsFormsApp5
                   attendee_limit: Int32.Parse(dr[4].ToString()),
                   description: dr[5].ToString(),
                   categories: dr[6].ToString(),
-                  location: Int32.Parse(dr[10].ToString()),
+                  location: Int32.Parse(dr[7].ToString()),
                   status: Int32.Parse(dr[8].ToString()),
                   PO_id: Int32.Parse(dr[9].ToString()));
 
-
                 PownerEvents.Add(pEvent);
-
+                // dr[7].ToString() id of the location in the event table
             }
 
 
@@ -96,10 +96,22 @@ namespace WindowsFormsApp5
             int selectedIndex = item.Index;
 
 
+            OracleCommand c = new OracleCommand();
+            c.Connection = conn;
+            c.CommandText = "select Name from place where id =  " + PownerEvents[selectedIndex].location ;
+            OracleDataReader r = c.ExecuteReader();
+            if (r.Read())
+            {
+                place = r[0].ToString();
+            }
+            r.Close();
+
+
+
             label2.Text = "Name :           " + PownerEvents[selectedIndex].name;
             label7.Text = "Description :  " + PownerEvents[selectedIndex].description;
             label3.Text = "Categories  :  " + PownerEvents[selectedIndex].categories;
-            label5.Text = "Location :       " + PownerEvents[selectedIndex].location;
+            label5.Text = "Location :       " + place;
 
 
             conn = new OracleConnection(ordb);
