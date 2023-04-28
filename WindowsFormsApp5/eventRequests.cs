@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -36,7 +37,7 @@ namespace WindowsFormsApp5
                 /*  PoEvents.Add(Int32.Parse(dr[0].ToString()), dr[1].ToString());*/
 
                 Events pEvent = new Events(
-               id: Int32.Parse(dr[0].ToString()),
+                 id: Int32.Parse(dr[0].ToString()),
                   name: dr[1].ToString(),
                   date: dr[2].ToString(),
                   time: dr[3].ToString(),
@@ -44,9 +45,10 @@ namespace WindowsFormsApp5
                   description: dr[5].ToString(),
                   categories: dr[6].ToString(),
                   location: dr[7].ToString(),
-                  status: Int32.Parse(dr[8].ToString())
+                  status: Int32.Parse(dr[8].ToString()),
+                  PO_id: Int32.Parse(dr[9].ToString())
 
-                    );
+                    ) ;
 
 
                 PownerEvents.Add(pEvent);

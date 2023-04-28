@@ -51,6 +51,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateEvent.Designer.cs">
+      <DependentUpon>CreateEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="eventRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eventRequests.Designer.cs">
+      <DependentUpon>eventRequests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Events.cs" />
     <Compile Include="ManagePlace.cs">
       <SubType>Form</SubType>
@@ -58,6 +70,12 @@
     <Compile Include=".Designer.cs">
       <DependentUpon>ManagePlace.cs</DependentUpon>
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage_Category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage_Category.Designer.cs">
+      <DependentUpon>Manage_Category.cs</DependentUpon>
     </Compile>
     <Compile Include="PlaceOwnerHome.cs">
       <SubType>Form</SubType>
@@ -79,8 +97,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CreateEvent.resx">
+      <DependentUpon>CreateEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eventRequests.resx">
+      <DependentUpon>eventRequests.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManagePlace.resx">
       <DependentUpon>ManagePlace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage_Category.resx">
+      <DependentUpon>Manage_Category.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlaceOwnerHome.resx">
       <DependentUpon>PlaceOwnerHome.cs</DependentUpon>
