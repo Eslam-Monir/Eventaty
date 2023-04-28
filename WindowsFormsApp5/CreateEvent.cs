@@ -48,7 +48,7 @@ namespace WindowsFormsApp5
                 cmd.Parameters.Add("TIMES", event_time.Text);
                 cmd.Parameters.Add("ATTENDEE_LIMIT", event_attendeelimit.Text);
                 cmd.Parameters.Add("DESCRIPTION", event_description.Text);
-                cmd.Parameters.Add("CATEGORIES", event_categories.Text);
+                cmd.Parameters.Add("CATEGORIES", event_categ.SelectedItem.ToString());;
                 cmd.Parameters.Add("LOCATION", event_location.SelectedItem.ToString());
 
                 int r = cmd.ExecuteNonQuery();
@@ -87,6 +87,26 @@ namespace WindowsFormsApp5
                 event_location.Items.Add(dr[0]);
             }
             dr.Close();
+
+            // selecting categories and filling the combo box !!
+            cmd.CommandText = "select name from category";
+            cmd.CommandType = CommandType.Text;
+            OracleDataReader categs = cmd.ExecuteReader();
+            while (categs.Read())
+            {
+                event_categ.Items.Add(categs[0]);
+            }
+            categs.Close();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void event_categ_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

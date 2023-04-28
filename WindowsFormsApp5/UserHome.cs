@@ -37,7 +37,7 @@ namespace WindowsFormsApp5
                   attendee_limit: Int32.Parse(dr[4].ToString()),
                   description: dr[5].ToString(),
                   categories: dr[6].ToString(),
-                  location: dr[10].ToString(),
+                  location: Int32.Parse(dr[10].ToString()),
                   status: Int32.Parse(dr[8].ToString()),
                   PO_id: Int32.Parse(dr[9].ToString()));
 
@@ -122,7 +122,7 @@ namespace WindowsFormsApp5
                   attendee_limit: 0,
                   description: null,
                   categories: null,
-                  location: null,
+                  location: 0,
                   status: 0,
                   PO_id: 0);
 

@@ -10,11 +10,11 @@
         public int attendee_limit;
         //TODO
         public string categories;
-        public string location;
+        public int location;
         public int status;
         public int PO_id;
 
-        public Events(int id, string name, string date, string time, int attendee_limit, string description, string categories, string location, int status, int PO_id)
+        public Events(int id, string name, string date, string time, int attendee_limit, string description, string categories, int location, int status, int PO_id)
         {
 
             this.id = id;

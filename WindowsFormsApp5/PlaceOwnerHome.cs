@@ -45,7 +45,7 @@ namespace WindowsFormsApp5
                   attendee_limit: Int32.Parse(dr[4].ToString()),
                   description: dr[5].ToString(),
                   categories: dr[6].ToString(),
-                  location: dr[7].ToString(),
+                  location: Int32.Parse(dr[7].ToString()),
                   status: Int32.Parse(dr[8].ToString()),
                   PO_id: Int32.Parse(dr[9].ToString())
 
@@ -77,7 +77,7 @@ namespace WindowsFormsApp5
             label1.Text = PownerEvents[selectedIndex].name;
             label8.Text = PownerEvents[selectedIndex].description;
             label4.Text = PownerEvents[selectedIndex].categories;
-            label6.Text = PownerEvents[selectedIndex].location;
+            label6.Text = PownerEvents[selectedIndex].location.ToString();
 
         }
 
@@ -126,10 +126,10 @@ namespace WindowsFormsApp5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /* this.Hide();
+             this.Hide();
              eventRequests Req = new eventRequests();
              Req.Show();
- */
+ 
         }
     }
 }

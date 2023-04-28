@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +13,7 @@ namespace WindowsFormsApp5
 {
     public partial class eventRequests : Form
     {
+        String place; 
         string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
         OracleConnection conn;
         Dictionary<int, string> PoEvents = new Dictionary<int, string>();
@@ -27,8 +27,12 @@ namespace WindowsFormsApp5
             conn = new OracleConnection(ordb);
             conn.Open();
             OracleCommand cmd = new OracleCommand();
-            OracleCommand cmd2 = new OracleCommand();
+            
             cmd.Connection = conn;
+            OracleCommand c = new OracleCommand();
+
+            c.Connection = conn;
+            
             cmd.CommandText = "  select events.* from events inner join pending_request on  Events.id = pending_request.event_id where  events.po_id= " + Login_form.ID;
             OracleDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -37,24 +41,30 @@ namespace WindowsFormsApp5
                 /*  PoEvents.Add(Int32.Parse(dr[0].ToString()), dr[1].ToString());*/
 
                 Events pEvent = new Events(
-                 id: Int32.Parse(dr[0].ToString()),
+                  id: Int32.Parse(dr[0].ToString()),
                   name: dr[1].ToString(),
                   date: dr[2].ToString(),
                   time: dr[3].ToString(),
                   attendee_limit: Int32.Parse(dr[4].ToString()),
                   description: dr[5].ToString(),
                   categories: dr[6].ToString(),
-                  location: dr[7].ToString(),
+                  location: Int32.Parse(dr[7].ToString()),
                   status: Int32.Parse(dr[8].ToString()),
                   PO_id: Int32.Parse(dr[9].ToString())
 
-                    ) ;
-
-
+                    );
                 PownerEvents.Add(pEvent);
+                c.CommandText = "select Name from place where id =  " + dr[7].ToString();
+                OracleDataReader r = c.ExecuteReader();
+               while(r.Read())
+                {
+                  place = r[0].ToString();
+                }
+               r.Close();
+                
 
 
-                cmd2.CommandText = "  select * from events inner join place on  Events.location = place.id where  place.po_id= " + Login_form.ID;
+                
 
             }
             /*      for (int i = 0;i<PownerEvents.Count;i++)
@@ -65,6 +75,8 @@ namespace WindowsFormsApp5
             {
                 listView1.Items.Add(evnt.name);
             }
+            dr.Close();
+           
 
         }
 
@@ -81,10 +93,62 @@ namespace WindowsFormsApp5
             int selectedIndex = item.Index;
 
 
-            label1.Text = PownerEvents[selectedIndex].name;
-            label6.Text = PownerEvents[selectedIndex].description;
-            label4.Text = PownerEvents[selectedIndex].categories;
-            label8.Text = PownerEvents[selectedIndex].location;
+            label2.Text = "Name :           " + PownerEvents[selectedIndex].name;
+            label7.Text = "Description :  " + PownerEvents[selectedIndex].description;
+            label3.Text = "Categories  :  " + PownerEvents[selectedIndex].categories;
+            label5.Text = "Location :     " + place;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+                return;
+            ListViewItem item = listView1.SelectedItems[0];
+            int selectedIndex = item.Index;
+            int Event_id = PownerEvents[selectedIndex].id;
+            int place_id = PownerEvents[selectedIndex].location;
+            OracleCommand cmd2 = new OracleCommand();
+
+            cmd2.Connection = conn;
+            cmd2.CommandText = " UPDATE events  SET STATUS = 1 WHERE ID = " + Event_id;
+            int r = cmd2.ExecuteNonQuery();
+            if (r != -1)
+            {
+                cmd2.CommandText = " UPDATE Place  SET STATUS = 'closed' WHERE ID =  " + place_id;
+                
+                cmd2.ExecuteNonQuery();
+                cmd2.CommandText = "DELETE FROM PENDING_REQUEST WHERE EVENT_ID = " + Event_id;
+                cmd2.ExecuteNonQuery();
+               /* cmd2.CommandText = "  select events.* , place.name FROM events INNER JOIN place ON events.location=place.id  ";*/
+                MessageBox.Show("done");
+                eventRequests eventRequests = new eventRequests();
+                this.Hide();
+                eventRequests.Show();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 0)
+                return;
+            ListViewItem item = listView1.SelectedItems[0];
+            int selectedIndex = item.Index;
+            int Event_id = PownerEvents[selectedIndex].id;
+            int place_id = PownerEvents[selectedIndex].location;
+            OracleCommand c = new OracleCommand();
+
+            c.Connection = conn;
+            c.CommandText = " DELETE FROM events WHERE ID = " + Event_id;
+            int r = c.ExecuteNonQuery();
+            if (r != -1)
+            {
+                c.CommandText = "DELETE FROM PENDING_REQUEST WHERE EVENT_ID = " + Event_id;
+                c.ExecuteNonQuery();
+                MessageBox.Show("done");
+                eventRequests eventRequests = new eventRequests();
+                this.Hide();
+                eventRequests.Show();
+            }
         }
     }
 }
