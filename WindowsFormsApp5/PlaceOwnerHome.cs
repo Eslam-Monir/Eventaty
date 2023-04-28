@@ -1,13 +1,7 @@
 ﻿using Oracle.DataAccess.Client;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp5
@@ -20,9 +14,9 @@ namespace WindowsFormsApp5
         {
             InitializeComponent();
         }
-       /* KeyValuePair<int, string> PoEvents = new KeyValuePair<int, string>();*/
+        /* KeyValuePair<int, string> PoEvents = new KeyValuePair<int, string>();*/
         Dictionary<int, string> PoEvents = new Dictionary<int, string>();
-       List<Events> PownerEvents= new List<Events>();
+        List<Events> PownerEvents = new List<Events>();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -30,10 +24,10 @@ namespace WindowsFormsApp5
             conn.Open();
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "  select * from events inner join place on  Events.location = place.id where  place.po_id= "+Login_form.ID;
-           
-    
-              
+            cmd.CommandText = "  select * from events inner join place on  Events.location = place.id where  place.po_id= " + Login_form.ID;
+
+
+
 
             /**//*and Place.PO_ID= "+Login_form.ID;*/
             cmd.CommandType = CommandType.Text;
@@ -44,20 +38,21 @@ namespace WindowsFormsApp5
                 /*  PoEvents.Add(Int32.Parse(dr[0].ToString()), dr[1].ToString());*/
 
                 Events pEvent = new Events(
-               id:Int32.Parse(dr[0].ToString()),
-                  name:dr[1].ToString(),
-                  date:dr[2].ToString(),
-                  time:dr[3].ToString(),
-                  attendee_limit: Int32.Parse(dr[4].ToString()) ,
-                  description: dr[5].ToString(), 
+               id: Int32.Parse(dr[0].ToString()),
+                  name: dr[1].ToString(),
+                  date: dr[2].ToString(),
+                  time: dr[3].ToString(),
+                  attendee_limit: Int32.Parse(dr[4].ToString()),
+                  description: dr[5].ToString(),
                   categories: dr[6].ToString(),
                   location: dr[7].ToString(),
-                  status: Int32.Parse(dr[8].ToString())
+                  status: Int32.Parse(dr[8].ToString()),
+                  PO_id: Int32.Parse(dr[9].ToString())
 
                     );
 
-                
-                PownerEvents.Add( pEvent );
+
+                PownerEvents.Add(pEvent);
 
             }
             /*      for (int i = 0;i<PownerEvents.Count;i++)
@@ -76,9 +71,9 @@ namespace WindowsFormsApp5
             if (listView1.SelectedItems.Count == 0)
                 return;
             ListViewItem item = listView1.SelectedItems[0];
-          int selectedIndex=  item.Index;
+            int selectedIndex = item.Index;
 
-            
+
             label1.Text = PownerEvents[selectedIndex].name;
             label8.Text = PownerEvents[selectedIndex].description;
             label4.Text = PownerEvents[selectedIndex].categories;
@@ -88,7 +83,7 @@ namespace WindowsFormsApp5
 
         private void label1_Click(object sender, EventArgs e)
         {
-  
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -118,7 +113,7 @@ namespace WindowsFormsApp5
 
         private void button5_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -131,10 +126,10 @@ namespace WindowsFormsApp5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            eventRequests Req = new eventRequests();
-            Req.Show();
-
+            /* this.Hide();
+             eventRequests Req = new eventRequests();
+             Req.Show();
+ */
         }
     }
 }

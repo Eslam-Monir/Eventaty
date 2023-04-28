@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WindowsFormsApp5
+﻿namespace WindowsFormsApp5
 {
     public class Events
     {
@@ -18,10 +12,11 @@ namespace WindowsFormsApp5
         public string categories;
         public string location;
         public int status;
- 
-      public Events(int id, string name, string date, string time, int attendee_limit, string description, string categories, string location, int status)
+        public int PO_id;
+
+        public Events(int id, string name, string date, string time, int attendee_limit, string description, string categories, string location, int status, int PO_id)
         {
-    
+
             this.id = id;
             this.name = name;
             this.date = date;
@@ -31,6 +26,7 @@ namespace WindowsFormsApp5
             this.categories = categories;
             this.location = location;
             this.status = status;
+            this.PO_id = PO_id;
         }
 
     }

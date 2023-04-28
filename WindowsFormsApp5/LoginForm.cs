@@ -1,15 +1,7 @@
 ﻿using Oracle.DataAccess.Client;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 
@@ -21,7 +13,9 @@ namespace WindowsFormsApp5
     {
         string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
         OracleConnection conn;
-       public static int ID;
+        public static int ID;
+        public static int User_ID;
+
         public Login_form()
         {
             InitializeComponent();
@@ -32,7 +26,7 @@ namespace WindowsFormsApp5
             conn = new OracleConnection(ordb);
             conn.Open();
             OracleCommand cmd = new OracleCommand();
-          
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -46,14 +40,16 @@ namespace WindowsFormsApp5
         }
 
         private void button1_Click(object sender, EventArgs e)
-         
-        {   conn = new OracleConnection(ordb);
+
+        {
+            conn = new OracleConnection(ordb);
             conn.Open();
             OracleCommand cmd = new OracleCommand();
 
 
             cmd.Connection = conn;
-            if (!IsPO.Checked) {
+            if (!IsPO.Checked)
+            {
                 cmd.CommandText = "select id from Users where Name = :name and Password= :password";
             }
             else
@@ -68,19 +64,21 @@ namespace WindowsFormsApp5
             {
                 Verify.Text = "Login Successfull ";
                 if (!IsPO.Checked)
-                {ID = Int32.Parse(dr[0].ToString());
+                {
+                    User_ID = Int32.Parse(dr[0].ToString());
                     this.Hide();
                     UserHome HomeForm = new UserHome();
                     HomeForm.Show();
-                    
-                  
+
+
                 }
                 else
-                {ID = Int32.Parse(dr[0].ToString());
+                {
+                    ID = Int32.Parse(dr[0].ToString());
                     this.Hide();
                     PlaceOwnerHome HomeForm = new PlaceOwnerHome();
                     HomeForm.Show();
-                    
+
                 }
             }
             else { Verify.Text = "Login Unsuccessfull "; }
