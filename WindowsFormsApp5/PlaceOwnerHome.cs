@@ -48,18 +48,15 @@ namespace WindowsFormsApp5
                   categories: dr[6].ToString(),
                   location: Int32.Parse(dr[7].ToString()),
                   status: Int32.Parse(dr[8].ToString()),
-                  PO_id: Int32.Parse(dr[9].ToString())
-
+                  PO_id: Int32.Parse(dr[9].ToString()),
+                   S_id: Int32.Parse(dr[10].ToString())
                     );
 
 
                 PownerEvents.Add(pEvent);
 
             }
-            /*      for (int i = 0;i<PownerEvents.Count;i++)
-                  {
-                      listView1.Items.Add(PoEvents.Values.);
-                  }*/
+          
             foreach (Events evnt in PownerEvents)
             {
                 listView1.Items.Add(evnt.name);
@@ -142,5 +139,8 @@ namespace WindowsFormsApp5
              Req.Show();
  
         }
+
+   
+   
     }
 }

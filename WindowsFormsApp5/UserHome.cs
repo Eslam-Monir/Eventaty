@@ -23,7 +23,7 @@ namespace WindowsFormsApp5
             conn.Open();
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "  SELECT events.* FROM events INNER join category  ON events.categories = category.name inner JOIN favorite_category ON category.id = favorite_category.cat_id WHERE favorite_category.user_id = "+Login_form.User_ID;
+            cmd.CommandText = "  SELECT events.* FROM events INNER join category  ON events.categories = category.name inner JOIN favorite_category ON category.id = favorite_category.cat_id WHERE Events.status=1 and favorite_category.user_id = "+Login_form.User_ID;
             cmd.CommandType = CommandType.Text;
 
             OracleDataReader dr = cmd.ExecuteReader();
@@ -40,22 +40,72 @@ namespace WindowsFormsApp5
                   categories: dr[6].ToString(),
                   location: Int32.Parse(dr[7].ToString()),
                   status: Int32.Parse(dr[8].ToString()),
-                  PO_id: Int32.Parse(dr[9].ToString()));
+                  PO_id: Int32.Parse(dr[9].ToString()),
+                   S_id: Int32.Parse(dr[10].ToString()))
+                    ;
 
                 PownerEvents.Add(pEvent);
                 // dr[7].ToString() id of the location in the event table
             }
+            dr=cmd.ExecuteReader();
+
+
+
+            OracleCommand cmd2 = new OracleCommand();
+            cmd2.Connection = conn;
+            
+/*            cmd.CommandText = "  SELECT Sponsers.name FROM events INNER join sponsers  ON events.s_id = sponsers.id  inner JOIN favorite_category ON category.id = favorite_category.cat_id WHERE Events.status=1 and favorite_category.user_id = " + Login_form.User_ID;
+*/
+
+           
+         
+
+            cmd2.CommandText = "getsp";
+            cmd2.CommandType= CommandType.StoredProcedure;
+            int i = 0;
+
+        /*
+            while (dr.Read())
+            {
+                *//*                cmd2.CommandText = "  SELECT Sponsers.name FROM sponsers where  sponsers.id = " + PownerEvents[i].S_id ;
+                *//*
+                int str;
+                string str1;
+                string str2;
+               
+                cmd2.Parameters.Add("sp_id", PownerEvents[i].S_id);
+                cmd2.Parameters.Add("str", OracleDbType.Int64,ParameterDirection.Output);
+                cmd2.Parameters.Add("str1", OracleDbType.Varchar2, ParameterDirection.Output);
+                cmd2.Parameters.Add("str2", OracleDbType.Varchar2, ParameterDirection.Output);
+
+                OracleDataReader dr2 = cmd2.ExecuteReader();
+                dr2.Read();
+                PownerEvents[i].sponsorName = dr2[0].ToString();
+       
+              i++;
+            }*/
+
+
+
 
 
             foreach (Events evnt in PownerEvents)
             {
                 listView1.Items.Add(evnt.name);
             }
+
+
+
+
+
+
         }
 
         private void create_event_Click(object sender, EventArgs e)
         {
-
+            Create_Event createEvent = new Create_Event();
+            this.Hide();
+            createEvent.Show();
         }
 
         private void add_comment_Click(object sender, EventArgs e)
@@ -112,7 +162,7 @@ namespace WindowsFormsApp5
             label7.Text = "Description :  " + PownerEvents[selectedIndex].description;
             label3.Text = "Categories  :  " + PownerEvents[selectedIndex].categories;
             label5.Text = "Location :       " + place;
-
+            label9.Text = "Sponsor :       " + PownerEvents[selectedIndex].sponsorName;
 
             conn = new OracleConnection(ordb);
             conn.Open();
@@ -136,12 +186,23 @@ namespace WindowsFormsApp5
                   categories: null,
                   location: 0,
                   status: 0,
-                  PO_id: 0);
-
+                  PO_id: 0,
+                    S_id: 0);
+          
+          
 
                 PComments.Add(pEvent);
 
             }
+
+
+
+
+            cmd.CommandText = "  select Sponsers.*  FROM Sponsers INNER JOIN events ON events.id = comments.event_id and events.id =" + PownerEvents[selectedIndex].id;
+
+
+
+
 
             comments.Items.Clear();
             foreach (Events evnt in PComments)

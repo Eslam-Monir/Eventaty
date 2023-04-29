@@ -46,6 +46,8 @@
             this.event_location = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.event_categ = new System.Windows.Forms.ComboBox();
+            this.sponsorsBox = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // event_attendeelimit
@@ -205,9 +207,30 @@
             this.event_categ.TabIndex = 41;
             this.event_categ.SelectedIndexChanged += new System.EventHandler(this.event_categ_SelectedIndexChanged);
             // 
+            // sponsorsBox
+            // 
+            this.sponsorsBox.FormattingEnabled = true;
+            this.sponsorsBox.Location = new System.Drawing.Point(16, 245);
+            this.sponsorsBox.Name = "sponsorsBox";
+            this.sponsorsBox.Size = new System.Drawing.Size(91, 21);
+            this.sponsorsBox.TabIndex = 43;
+            this.sponsorsBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(13, 207);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(46, 13);
+            this.label10.TabIndex = 42;
+            this.label10.Text = "Sponsor";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
             // Create_Event
             // 
             this.ClientSize = new System.Drawing.Size(793, 448);
+            this.Controls.Add(this.sponsorsBox);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.event_categ);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.event_location);
@@ -253,5 +276,7 @@
         private System.Windows.Forms.ComboBox event_location;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox event_categ;
+        private System.Windows.Forms.ComboBox sponsorsBox;
+        private System.Windows.Forms.Label label10;
     }
 }

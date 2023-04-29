@@ -39,10 +39,25 @@ namespace WindowsFormsApp5
             }
             else
             {
+                OracleCommand cmd3 = new OracleCommand();
+                cmd3.Connection = conn;
+                cmd3.CommandText = "SELECT id FROM sponsers WHERE name =:name " ;
+                cmd3.Parameters.Add("name",sponsorsBox.SelectedItem.ToString());
+                cmd3.CommandType = CommandType.Text;
+                int w=0;
+                
+                OracleDataReader dr2 = cmd3.ExecuteReader();
+                while (dr2.Read()) {
+                
+                  w = Int32.Parse(dr2[0].ToString());
+                   
+                }
+                
+
                 dr.Close();
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = "INSERT INTO Events (ID, NAME, DATES, TIMES, ATTENDEE_LIMIT, DESCRIPTION, CATEGORIES, LOCATION, STATUS , PO_ID) VALUES (events_seq.nextval, :NAME, :DATES, :TIMES, :ATENDEE_LIMIT, :DESCRIPTION, :CATEGORIES, (SELECT ID FROM PLACE WHERE NAME =:LOCATION AND STATUS != 'CLOSED'), 0, (SELECT PO_ID FROM PLACE WHERE NAME =:LOCATION AND STATUS != 'CLOSED'))";
+                cmd.CommandText = "INSERT INTO Events (ID, NAME, DATES, TIMES, ATTENDEE_LIMIT, DESCRIPTION, CATEGORIES, LOCATION, STATUS , PO_ID,S_ID) VALUES (events_seq.nextval, :NAME, :DATES, :TIMES, :ATENDEE_LIMIT, :DESCRIPTION, :CATEGORIES, (SELECT ID FROM PLACE WHERE NAME =:LOCATION AND STATUS != 'CLOSED'), 0, (SELECT PO_ID FROM PLACE WHERE NAME =:LOCATION AND STATUS != 'CLOSED')," + w+")";
                 cmd.Parameters.Add("NAME", event_name.Text);
                 cmd.Parameters.Add("DATES", event_date.Text);
                 cmd.Parameters.Add("TIMES", event_time.Text);
@@ -50,7 +65,7 @@ namespace WindowsFormsApp5
                 cmd.Parameters.Add("DESCRIPTION", event_description.Text);
                 cmd.Parameters.Add("CATEGORIES", event_categ.SelectedItem.ToString());;
                 cmd.Parameters.Add("LOCATION", event_location.SelectedItem.ToString());
-
+             
                 int r = cmd.ExecuteNonQuery();
                 if (r != -1)
                 {
@@ -96,7 +111,22 @@ namespace WindowsFormsApp5
             {
                 event_categ.Items.Add(categs[0]);
             }
+
+
+
+
             categs.Close();
+
+            //sponsorsBox
+            cmd.CommandText = "select name from sponsers";      
+            cmd.CommandType = CommandType.Text;          
+            OracleDataReader sponsorsReader = cmd.ExecuteReader();   
+            while (sponsorsReader.Read())    
+            {       
+                sponsorsBox.Items.Add(sponsorsReader[0]);     
+            }
+            sponsorsReader.Close();
+
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -105,6 +135,16 @@ namespace WindowsFormsApp5
         }
 
         private void event_categ_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

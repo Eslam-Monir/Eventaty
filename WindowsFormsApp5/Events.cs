@@ -13,8 +13,9 @@
         public int location;
         public int status;
         public int PO_id;
-
-        public Events(int id, string name, string date, string time, int attendee_limit, string description, string categories, int location, int status, int PO_id)
+        public int S_id;
+        public string sponsorName;
+        public Events(int id, string name, string date, string time, int attendee_limit, string description, string categories, int location, int status, int PO_id, int S_id)
         {
 
             this.id = id;
@@ -27,6 +28,7 @@
             this.location = location;
             this.status = status;
             this.PO_id = PO_id;
+            this.S_id = S_id;
         }
 
     }
