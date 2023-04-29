@@ -54,15 +54,22 @@ namespace WindowsFormsApp5
             OracleCommand cmd2 = new OracleCommand();
             cmd2.Connection = conn;
             
-/*            cmd.CommandText = "  SELECT Sponsers.name FROM events INNER join sponsers  ON events.s_id = sponsers.id  inner JOIN favorite_category ON category.id = favorite_category.cat_id WHERE Events.status=1 and favorite_category.user_id = " + Login_form.User_ID;
-*/
+            cmd2.CommandText = "  SELECT Sponsers.name FROM events INNER join sponsers  ON events.s_id = sponsers.id  inner JOIN favorite_category ON category.id = favorite_category.cat_id WHERE Events.status=1 and favorite_category.user_id = " + Login_form.User_ID;
+        int i = 0;
+  cmd2.CommandType= CommandType.Text;
+            while (dr.Read())
+            {
+                cmd2.CommandText = "  SELECT Sponsers.name FROM sponsers where  sponsers.id = " + PownerEvents[i].S_id;
 
+                OracleDataReader dr2 = cmd2.ExecuteReader();
+                dr2.Read();
+                PownerEvents[i].sponsorName = dr2[0].ToString();
+
+                i++;
+            }
+                
+          
            
-         
-
-            cmd2.CommandText = "getsp";
-            cmd2.CommandType= CommandType.StoredProcedure;
-            int i = 0;
 
         /*
             while (dr.Read())
@@ -252,6 +259,13 @@ namespace WindowsFormsApp5
             this.Hide();
             Manage_Category manage_cat = new Manage_Category();
             manage_cat.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UserProfile userprof = new UserProfile();
+            userprof.Show();
         }
     }
 }
